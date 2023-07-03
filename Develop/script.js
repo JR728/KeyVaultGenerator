@@ -15,7 +15,7 @@ var includeSpecial;
 function generatePassword() {
   passwordLength = prompt("Enter the desired password length (between 8 and 128 characters):");
 
-  // Validate the password length
+  // Validate the password length and what characters are included
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     passwordLength = prompt("Please enter a valid password length (between 8 and 128 characters):");
   }
@@ -32,7 +32,39 @@ function generatePassword() {
     includeNumeric = confirm("Include numeric characters?");
     includeSpecial = confirm("Include special characters?");
   }
+  // Generate the password based on selected criteria
+  var password = generatePasswordBasedOnCriteria();
+
+  return password;
 }
+
+function generatePasswordBasedOnCriteria() {
+  var selectedChars = "";
+  var password = "";
+
+  // Build the string of selected characters based on the criteria
+  if (includeLowercase) {
+    selectedChars += lowercaseChars;
+  }
+  if (includeUppercase) {
+    selectedChars += uppercaseChars;
+  }
+  if (includeNumeric) {
+    selectedChars += numericChars;
+  }
+  if (includeSpecial) {
+    selectedChars += specialChars;
+  }
+
+  // Generate the password using randomly selected characters
+  for (var i = 0; i < passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * selectedChars.length);
+    password += selectedChars[randomIndex];
+  }
+
+  return password;
+}
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 

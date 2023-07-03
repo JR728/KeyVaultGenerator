@@ -12,7 +12,14 @@ var includeUppercase;
 var includeNumeric;
 var includeSpecial;
 
+function generatePassword() {
+  passwordLength = prompt("Enter the desired password length (between 8 and 128 characters):");
 
+  // Validate the password length
+  while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    passwordLength = prompt("Please enter a valid password length (between 8 and 128 characters):");
+  }
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -27,14 +34,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numericChars = "0123456789";
-var specialChars = "`~!@#$%^&*()-_=+[{]}\|;:'\",<.>/?";
-
-var passwordLength;
-var includeLowercase;
-var includeUppercase;
-var includeNumeric;
-var includeSpecial;
-

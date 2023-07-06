@@ -10,7 +10,7 @@ N/A
 The website https://jr728.github.io/KeyVaultGenerator/ press the generate button and prompt will show asking how long you want your password to be and the type of characters you want in the passwords.
 
 ## Images
-![ScreenShot](images/Password-generator.png)
+![ScreenShot](assets/images/Password-generator.png)
 
 ## Credit
 the starter code for the password generator https://github.com/coding-boot-camp/friendly-parakeet
